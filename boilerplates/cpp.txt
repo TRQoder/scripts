@@ -1,0 +1,73 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"boilerplate": {
+		"prefix": "z boilerplate for c++",
+		"body": [
+			"#include <iostream>",
+			"#include <vector>",
+			"#include <algorithm>",
+			"using namespace std;",
+			"int main()",
+			"{",
+			"\t$1\n\t",
+			"\t return 0;",
+			"}",
+			"$2"
+		],
+		"description": "BoilerPlate for C++"
+	},
+
+	"vector": {
+		"prefix": "vector",
+		"body": [
+			"vector<int> $1 ;",
+			"$2",
+			
+		],
+		"description": "vector syntax"
+	},
+
+	"vector print": {
+		"prefix": "vp",
+		"body": [
+			"for (auto value: $1){",
+			"\tcout<<value<<\" \";",
+			"}",
+			"$2",
+			
+		],
+		"description": "print vector"
+	},
+
+	"vector loop": {
+		"prefix": "vl",
+		"body": [
+			"for(int i=0;i<$1.size();i++){",
+			"\t$2",
+			"}",
+			"$0",
+			
+		],
+		"description": "print vector"
+	},
+
+	"vector double loop": {
+		"prefix": "vll",
+		"body": [
+			"for(int i=0;i<$1.size();i++){",
+			"\tfor(int j=0;j<$2.size();j++){",
+			"\t\t$0",
+			"\t}",
+			"}",
+		
+			
+			
+		],
+		"description": "print vector"
+	},
+	
+}

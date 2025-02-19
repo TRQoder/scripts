@@ -1,0 +1,42 @@
+# Ask for the project name only once
+$PROJECT_NAME = Read-Host "Enter project name"
+
+Write-Host "🚀 Creating Vite React project: $PROJECT_NAME..."
+npx create-vite@latest $PROJECT_NAME --template react
+
+# Navigate to the project folder
+Set-Location $PROJECT_NAME
+
+# Install project dependencies
+Write-Host "📦 Installing dependencies..."
+npm install
+
+# Remove the default App.css file if it exists
+Write-Host "🗑️ Removing unused App.css..."
+Remove-Item "src/App.css" -ErrorAction SilentlyContinue
+
+# Clean the index.css file (remove any default styling)
+Write-Host "🧹 Cleaning src/index.css..."
+Set-Content -Path "src/index.css" -Value ""
+
+# Update App.jsx to remove the App.css import and use index.css instead
+Write-Host "📝 Updating src/App.jsx..."
+$appContent = @"
+import React from 'react'
+import './index.css'
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello Vite + React!</h1>
+    </div>
+  )
+}
+
+export default App
+"@
+Set-Content -Path "src/App.jsx" -Value $appContent
+
+# Start the development server
+Write-Host "🚀 Starting the development server..."
+npm run dev
